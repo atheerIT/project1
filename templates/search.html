@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block heading %}
+Book Search
+{% endblock %}
+{% block body %}
+<h5>{{message}} {{username}} successfully</h5>
+<form class="row" action="{{url_for('search')}}" method="post">
+  <input class="form-control" type="text" name="searchW" placeholder="search for book by title, author, year, or ISBN">
+  <button class="btn btn-primary mb-2">Search</button>
+</form>
+<ul class="list-group">
+  {% for result in results %}
+  <a class="list-group-item list-group-item-action" href="{{url_for('bookPage', isbn=result.isbn)}}">{{result.title}}
+    <ul>
+      <li>Auther: {{result.author}}</li>
+      <li>Year: {{result.year}}</li>
+    </ul>
+    </a>
+  {% else %}
+  <li>{{title}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

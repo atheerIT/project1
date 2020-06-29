@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Books App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        {% block logout %}
+        <button class="btn btn-primary mb-2" style="float: right;"><a style="color: aliceblue; text-decoration: none;" href="{{url_for('logout')}}">logout</a></button>
+        {% endblock %}
+        <h1>{% block heading %}{% endblock %}</h1>
+      </div>
+      {% block body %}
+      {% endblock %}
+      
+    </div>
+  </body>
+</html>
